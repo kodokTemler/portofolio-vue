@@ -130,7 +130,7 @@
           </div>
 
           <div class="about-img-wrap">
-            <img src="./assets/oca.jpg" class="about-img" alt="About" />
+            <img src="./assets/aboutme.png" class="about-img" alt="About" />
             <div class="about-img-frame"></div>
             <div class="about-img-tag">
               <strong class="about-img-name"
