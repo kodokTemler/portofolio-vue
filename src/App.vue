@@ -372,7 +372,7 @@ const projects = [
     link: "https://github.com/kodokTemler/Aplikasi-Kasir-Caffe",
   },
   {
-    title: "Website Desa Batupute Kab. Barru",
+    title: "Batupute Village Website, Barru Regency",
     description:
       "Official website for Batupute village, providing information and services to residents.",
     image: "/images/batupute.png",
