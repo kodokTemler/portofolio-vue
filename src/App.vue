@@ -368,5 +368,13 @@ const projects = [
     tech: ["JavaScript", "Bootstrap", "PHP", "MySQL", "Mitrans"],
     link: "https://github.com/kodokTemler/Aplikasi-Kasir-Caffe",
   },
+  {
+    title: "Website Desa Batupute Kab. Barru",
+    description:
+      "Official website for Batupute village, providing information and services to residents.",
+    image: "./assets/batupute.png",
+    tech: ["Laravel", "PHP", "MySQL"],
+    link: "https://website.desa-batupute.com/",
+  },
 ];
 </script>
