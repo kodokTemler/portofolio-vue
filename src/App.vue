@@ -343,24 +343,31 @@ const projects = [
     title: "Stunting Prediction System",
     description:
       "Web-based system for predicting stunting using Gaussian Naive Bayes integrated with Laravel and Python.",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3",
-    tech: ["Laravel", "Python", "MySQL"],
+    image: "/images/stunting.png",
+    tech: ["Laravel", "Python", "MySQL", "Bootstrap"],
     link: "https://github.com/kodokTemler/aplikasi-prediksi-stunting-naive-bayes",
   },
   {
     title: "Football Field Booking",
     description:
-      "Online football field booking system with scheduling and payment features.",
-    image: "https://images.unsplash.com/photo-1522778119026-d647f0596c20",
-    tech: ["PHP", "Bootstrap", "MySQL"],
+      "An online soccer field booking system equipped with scheduling, payment, and email verification features during the account creation process.",
+    image: "/images/lapanganbola.png",
+    tech: [
+      "PHP",
+      "Bootstrap",
+      "MySQL",
+      "Mitrans",
+      "Mailtrap",
+      "Tailwind CSS",
+      "SweetAlert2",
+    ],
     link: "https://github.com/kodokTemler/Reservasi-Lapangan-Futsal",
   },
   {
     title: "Memories Coffee Shop Website",
     description:
       "A simple web application for a local coffee shop to manage their menu and orders.",
-    image:
-      "https://images.unsplash.com/photo-1525610553991-2bede1a236e2?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "/images/kopikenangan.png",
     tech: ["JavaScript", "Bootstrap", "PHP", "MySQL", "Mitrans"],
     link: "https://github.com/kodokTemler/Aplikasi-Kasir-Caffe",
   },
@@ -369,7 +376,7 @@ const projects = [
     description:
       "Official website for Batupute village, providing information and services to residents.",
     image: "/images/batupute.png",
-    tech: ["Laravel", "PHP", "MySQL"],
+    tech: ["Laravel", "PHP", "MySQL", "Bootstrap"],
     link: "https://website.desa-batupute.com/",
   },
 ];
