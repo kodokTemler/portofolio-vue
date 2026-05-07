@@ -333,10 +333,6 @@ const skills = ref([
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
   },
   {
-    name: "Python",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-  },
-  {
     name: "Git",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
   },
@@ -372,7 +368,7 @@ const projects = [
     title: "Website Desa Batupute Kab. Barru",
     description:
       "Official website for Batupute village, providing information and services to residents.",
-    image: "public/images/batupute.png",
+    image: "/images/batupute.png",
     tech: ["Laravel", "PHP", "MySQL"],
     link: "https://website.desa-batupute.com/",
   },
