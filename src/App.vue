@@ -372,7 +372,7 @@ const projects = [
     title: "Website Desa Batupute Kab. Barru",
     description:
       "Official website for Batupute village, providing information and services to residents.",
-    image: "./assets/batupute.png",
+    image: "public/images/batupute.png",
     tech: ["Laravel", "PHP", "MySQL"],
     link: "https://website.desa-batupute.com/",
   },
