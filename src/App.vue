@@ -137,7 +137,7 @@
           </div>
           <div class="avatar-badge" data-aos="zoom-in" data-aos-delay="500">
             <strong>Available</strong>
-            <span>for freelance</span>
+            <span>For Freelance|Full-Time Roles</span>
           </div>
         </div>
       </div>
@@ -173,14 +173,19 @@
           </div>
 
           <div class="about-img-wrap" data-aos="fade-left" data-aos-delay="150">
-            <img src="./assets/aboutme.png" class="about-img" alt="About" loading="lazy" />
+            <img
+              src="./assets/aboutme.png"
+              class="about-img"
+              alt="About"
+              loading="lazy"
+            />
             <div class="about-img-frame"></div>
             <div class="about-img-tag" data-aos="fade-up" data-aos-delay="300">
               <strong class="about-img-name"
                 >Muhammad Abdul Rozzaq, S.Kom</strong
               >
               <p class="about-img-sub">
-                Based in Indonesia · Open to remote work
+                Based in Indonesia · Open to remote work & on-site work
               </p>
             </div>
           </div>
@@ -192,10 +197,23 @@
     <section id="skills" class="skills-section">
       <div class="max-container">
         <div class="section-label" data-aos="fade-up">// Skills</div>
-        <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Tech Stack</h2>
+        <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
+          Tech Stack
+        </h2>
         <div class="skills-grid">
-          <div v-for="(skill, index) in skills" :key="skill.name" class="skill-card" data-aos="fade-up" :data-aos-delay="index * 80">
-            <img :src="skill.icon" :alt="skill.name" class="skill-icon" loading="lazy" />
+          <div
+            v-for="(skill, index) in skills"
+            :key="skill.name"
+            class="skill-card"
+            data-aos="fade-up"
+            :data-aos-delay="index * 80"
+          >
+            <img
+              :src="skill.icon"
+              :alt="skill.name"
+              class="skill-icon"
+              loading="lazy"
+            />
             <div class="skill-name">{{ skill.name }}</div>
           </div>
         </div>
@@ -206,7 +224,9 @@
     <section id="projects" class="projects-section">
       <div class="max-container">
         <div class="section-label" data-aos="fade-up">// Projects</div>
-        <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Featured Work</h2>
+        <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
+          Featured Work
+        </h2>
         <div class="projects-grid">
           <div
             v-for="(project, index) in projects"
