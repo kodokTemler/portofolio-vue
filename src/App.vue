@@ -173,7 +173,7 @@
           </div>
 
           <div class="about-img-wrap" data-aos="fade-left" data-aos-delay="150">
-            <img src="./assets/aboutme.png" class="about-img" alt="About" />
+            <img src="./assets/aboutme.png" class="about-img" alt="About" loading="lazy" />
             <div class="about-img-frame"></div>
             <div class="about-img-tag" data-aos="fade-up" data-aos-delay="300">
               <strong class="about-img-name"
@@ -195,7 +195,7 @@
         <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Tech Stack</h2>
         <div class="skills-grid">
           <div v-for="(skill, index) in skills" :key="skill.name" class="skill-card" data-aos="fade-up" :data-aos-delay="index * 80">
-            <img :src="skill.icon" :alt="skill.name" class="skill-icon" />
+            <img :src="skill.icon" :alt="skill.name" class="skill-icon" loading="lazy" />
             <div class="skill-name">{{ skill.name }}</div>
           </div>
         </div>
@@ -219,6 +219,7 @@
               :src="project.image"
               class="project-img"
               :alt="project.title"
+              loading="lazy"
             />
             <div class="project-body">
               <div class="project-num">
@@ -307,6 +308,9 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
+import { useScrollAnimation } from "@/composables/useScrollAnimation.js";
+
+useScrollAnimation();
 
 const showLoader = ref(true);
 const mobileMenuOpen = ref(false);
@@ -332,7 +336,7 @@ onMounted(() => {
   }
   setTimeout(() => {
     showLoader.value = false;
-  }, 1800);
+  }, 400);
 });
 
 const openLink = (link) => {
