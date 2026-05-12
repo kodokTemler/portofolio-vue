@@ -1,5 +1,17 @@
 <template>
   <div class="portfolio-root">
+    <!-- LOADER -->
+    <transition name="loader-fade">
+      <div v-if="showLoader" class="loader-overlay">
+        <div class="loader-inner">
+          <img src="./assets/logoMAR.png" alt="MAR" class="loader-logo" />
+          <div class="loader-bar-track">
+            <div class="loader-bar-fill"></div>
+          </div>
+        </div>
+      </div>
+    </transition>
+
     <!-- NAVBAR -->
     <header class="nav-bar">
       <nav class="nav-inner">
@@ -13,6 +25,37 @@
             <a :href="item.href" class="nav-link">{{ item.label }}</a>
           </li>
         </ul>
+
+        <!-- Theme Toggle -->
+        <button
+          @click="toggleTheme"
+          class="theme-btn"
+          aria-label="Toggle theme"
+        >
+          <svg
+            v-if="theme === 'light'"
+            class="theme-icon"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+          </svg>
+          <svg
+            v-else
+            class="theme-icon"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <circle cx="12" cy="12" r="5" />
+            <path
+              d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+            />
+          </svg>
+        </button>
 
         <!-- Mobile Menu Button -->
         <button
@@ -71,28 +114,28 @@
       <div class="hero-glow"></div>
       <div class="hero-content">
         <div class="hero-text">
-          <div class="hero-tag">
+          <div class="hero-tag" data-aos="fade-down">
             <span class="tag-arrow">▶</span>Junior Web Developer
           </div>
-          <h1 class="hero-name">
+          <h1 class="hero-name" data-aos="fade-right">
             <span class="hero-hi">Hello, I'm</span>
             <span class="hero-oca">Muhammad Abdul Rozzaq</span>
           </h1>
-          <p class="hero-desc">
+          <p class="hero-desc" data-aos="fade-right" data-aos-delay="150">
             I build modern, responsive, and scalable web applications using
             HTML, CSS, JavaScript, Laravel, Bootstrap, Tailwind CSS, and MySQL.
           </p>
-          <div class="hero-cta">
+          <div class="hero-cta" data-aos="fade-right" data-aos-delay="300">
             <a href="#projects" class="btn-primary">View Projects</a>
             <a href="#contact" class="btn-outline">Contact Me</a>
           </div>
         </div>
 
-        <div class="hero-avatar-wrap">
+        <div class="hero-avatar-wrap" data-aos="fade-left" data-aos-delay="200">
           <div class="avatar-frame">
             <img src="./assets/profile.JPG" alt="Oca" class="avatar-img" />
           </div>
-          <div class="avatar-badge">
+          <div class="avatar-badge" data-aos="zoom-in" data-aos-delay="500">
             <strong>Available</strong>
             <span>for freelance</span>
           </div>
@@ -104,7 +147,7 @@
     <section id="about" class="about-section">
       <div class="max-container">
         <div class="about-grid">
-          <div class="about-text">
+          <div class="about-text" data-aos="fade-right">
             <div class="section-label">// About Me</div>
             <h2 class="section-title">Building things<br />that matter.</h2>
             <p class="about-desc">
@@ -117,22 +160,22 @@
               With a strong foundation in both frontend and backend, I bring
               ideas from design to deployment — clean, efficient, and scalable.
             </p>
-            <div class="stats-row">
-              <div class="stat-box">
+            <div class="stats-row" data-aos="fade-up" data-aos-delay="200">
+              <div class="stat-box" data-aos="flip-up" data-aos-delay="300">
                 <div class="stat-num">2+</div>
                 <div class="stat-label">Years Experience</div>
               </div>
-              <div class="stat-box">
+              <div class="stat-box" data-aos="flip-up" data-aos-delay="400">
                 <div class="stat-num">10+</div>
                 <div class="stat-label">Projects Completed</div>
               </div>
             </div>
           </div>
 
-          <div class="about-img-wrap">
+          <div class="about-img-wrap" data-aos="fade-left" data-aos-delay="150">
             <img src="./assets/aboutme.png" class="about-img" alt="About" />
             <div class="about-img-frame"></div>
-            <div class="about-img-tag">
+            <div class="about-img-tag" data-aos="fade-up" data-aos-delay="300">
               <strong class="about-img-name"
                 >Muhammad Abdul Rozzaq, S.Kom</strong
               >
@@ -148,10 +191,10 @@
     <!-- SKILLS SECTION -->
     <section id="skills" class="skills-section">
       <div class="max-container">
-        <div class="section-label">// Skills</div>
-        <h2 class="section-title">Tech Stack</h2>
+        <div class="section-label" data-aos="fade-up">// Skills</div>
+        <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Tech Stack</h2>
         <div class="skills-grid">
-          <div v-for="skill in skills" :key="skill.name" class="skill-card">
+          <div v-for="(skill, index) in skills" :key="skill.name" class="skill-card" data-aos="fade-up" :data-aos-delay="index * 80">
             <img :src="skill.icon" :alt="skill.name" class="skill-icon" />
             <div class="skill-name">{{ skill.name }}</div>
           </div>
@@ -162,13 +205,15 @@
     <!-- PROJECTS SECTION -->
     <section id="projects" class="projects-section">
       <div class="max-container">
-        <div class="section-label">// Projects</div>
-        <h2 class="section-title">Featured Work</h2>
+        <div class="section-label" data-aos="fade-up">// Projects</div>
+        <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Featured Work</h2>
         <div class="projects-grid">
           <div
             v-for="(project, index) in projects"
             :key="project.title"
             class="project-card"
+            data-aos="fade-up"
+            :data-aos-delay="index * 150"
           >
             <img
               :src="project.image"
@@ -186,10 +231,7 @@
                   tech
                 }}</span>
               </div>
-              <button
-                class="project-btn"
-                @click="openLink(project.link, '_blank')"
-              >
+              <button class="project-btn" @click="openLink(project.link)">
                 View Project →
               </button>
             </div>
@@ -200,10 +242,8 @@
 
     <!-- CONTACT SECTION -->
     <section id="contact" class="contact-section">
-      <div class="contact-inner">
-        <div class="section-label" style="justify-content: center">
-          // Contact
-        </div>
+      <div class="contact-inner" data-aos="fade-up">
+        <div class="section-label">// Contact</div>
         <h2 class="section-title">Let's Work<br />Together.</h2>
         <p class="contact-desc">
           Have a project in mind or want to collaborate? I'd love to hear from
@@ -266,26 +306,34 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 
+const showLoader = ref(true);
 const mobileMenuOpen = ref(false);
 
-const scrollToSection = (event, href) => {
-  event.preventDefault();
-  const targetId = href.substring(1); // hapus #
-  const targetElement = document.getElementById(targetId);
-  if (targetElement) {
-    const navbarHeight = document.querySelector(".nav-bar")?.offsetHeight || 70;
-    const elementPosition =
-      targetElement.getBoundingClientRect().top + window.pageYOffset;
-    const offsetPosition = elementPosition - navbarHeight;
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: "smooth",
-    });
-    mobileMenuOpen.value = false; // tutup mobile menu jika terbuka
-  }
+const theme = ref("dark");
+
+const applyTheme = (t) => {
+  document.documentElement.setAttribute("data-theme", t);
+  localStorage.setItem("theme", t);
+  theme.value = t;
 };
+
+const toggleTheme = () => {
+  applyTheme(theme.value === "dark" ? "light" : "dark");
+};
+
+onMounted(() => {
+  const saved = localStorage.getItem("theme");
+  if (saved === "light" || saved === "dark") {
+    applyTheme(saved);
+  } else {
+    applyTheme("dark");
+  }
+  setTimeout(() => {
+    showLoader.value = false;
+  }, 1800);
+});
 
 const openLink = (link) => {
   window.open(link, "_blank");
