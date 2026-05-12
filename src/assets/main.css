@@ -328,6 +328,22 @@ html {
     padding: 0.7rem 0.5rem;
     font-size: 0.95rem;
   }
+  .avatar-badge {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    left: auto;
+    margin-top: 0.5rem;
+    max-width: 100%;
+    text-align: center;
+    display: inline-block;
+    width: auto;
+  }
+  .hero-avatar-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 /* ─── SHARED UI COMPONENTS ───────────────────────────────── */
@@ -561,6 +577,8 @@ html {
 .avatar-badge span {
   font-size: 0.65rem;
   color: var(--muted);
+  white-space: normal;
+  word-break: break-word;
 }
 @keyframes spin {
   to {
@@ -730,6 +748,8 @@ html {
   }
   .avatar-badge {
     right: -10px;
+    bottom: -16px;
+    max-width: 180px;
   }
 
   /* PERBAIKAN ABOUT - GAMBAR TIDAK TERPOTONG */
@@ -1123,6 +1143,8 @@ html {
   }
   .avatar-badge {
     right: -10px;
+    bottom: -16px;
+    max-width: 180px;
   }
   .about-grid {
     grid-template-columns: 1fr;
