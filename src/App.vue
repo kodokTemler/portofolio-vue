@@ -149,7 +149,7 @@
 
         <div class="hero-avatar-wrap" data-aos="fade-left" data-aos-delay="200">
           <div class="avatar-frame">
-            <img src="./assets/profile.JPG" alt="Oca" class="avatar-img" />
+            <img src="./assets/profile.webp" fetchpriority="high" alt="Oca" class="avatar-img" />
           </div>
           <div class="avatar-badge" data-aos="zoom-in" data-aos-delay="500">
             <strong>{{ t('heroBadgeTitle') }}</strong>
@@ -182,7 +182,7 @@
 
           <div class="about-img-wrap" data-aos="fade-left" data-aos-delay="150">
             <img
-              src="./assets/aboutme.png"
+              src="./assets/aboutme.webp"
               class="about-img"
               alt="About"
               loading="lazy"
@@ -418,14 +418,14 @@ const projects = [
   {
     title: "Stunting Prediction System",
     descKey: "projDesc1",
-    image: "/images/stunting.png",
+    image: "/images/stunting.webp",
     tech: ["Laravel", "Python", "MySQL", "Bootstrap"],
     link: "https://github.com/kodokTemler/aplikasi-prediksi-stunting-naive-bayes",
   },
   {
     title: "Football Field Booking",
     descKey: "projDesc2",
-    image: "/images/lapanganbola.png",
+    image: "/images/lapanganbola.webp",
     tech: [
       "PHP",
       "Bootstrap",
@@ -440,14 +440,14 @@ const projects = [
   {
     title: "Memories Coffee Shop Website",
     descKey: "projDesc3",
-    image: "/images/kopikenangan.png",
+    image: "/images/kopikenangan.webp",
     tech: ["JavaScript", "Bootstrap", "PHP", "MySQL", "Mitrans"],
     link: "https://github.com/kodokTemler/Aplikasi-Kasir-Caffe",
   },
   {
     title: "Batupute Village Website, Barru Regency",
     descKey: "projDesc4",
-    image: "/images/batupute.png",
+    image: "/images/batupute.webp",
     tech: ["Laravel", "PHP", "MySQL", "Bootstrap"],
     link: "https://website.desa-batupute.com/",
   },
