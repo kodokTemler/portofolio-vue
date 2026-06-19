@@ -22,40 +22,57 @@
         <!-- Desktop Menu -->
         <ul class="nav-links desktop-menu">
           <li v-for="item in navItems" :key="item.href">
-            <a :href="item.href" class="nav-link">{{ item.label }}</a>
+            <a :href="item.href" class="nav-link">{{ t(item.key) }}</a>
           </li>
         </ul>
 
-        <!-- Theme Toggle -->
-        <button
-          @click="toggleTheme"
-          class="theme-btn"
-          aria-label="Toggle theme"
-        >
-          <svg
-            v-if="theme === 'light'"
-            class="theme-icon"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            viewBox="0 0 24 24"
+        <div class="toggle-group">
+          <button
+            @click="toggleLang"
+            class="theme-btn"
+            :aria-label="locale === 'en' ? 'Switch to Indonesian' : 'Ganti ke Inggris'"
           >
-            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
-          </svg>
-          <svg
-            v-else
-            class="theme-icon"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            viewBox="0 0 24 24"
+            <svg
+              class="theme-icon"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+            </svg>
+          </button>
+          <button
+            @click="toggleTheme"
+            class="theme-btn"
+            aria-label="Toggle theme"
           >
-            <circle cx="12" cy="12" r="5" />
-            <path
-              d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
-            />
-          </svg>
-        </button>
+            <svg
+              v-if="theme === 'light'"
+              class="theme-icon"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+            </svg>
+            <svg
+              v-else
+              class="theme-icon"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <circle cx="12" cy="12" r="5" />
+              <path
+                d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+              />
+            </svg>
+          </button>
+        </div>
 
         <!-- Mobile Menu Button -->
         <button
@@ -103,7 +120,7 @@
             @click="mobileMenuOpen = false"
             class="mobile-link"
           >
-            {{ item.label }}
+            {{ t(item.key) }}
           </a>
         </div>
       </transition>
@@ -115,19 +132,18 @@
       <div class="hero-content">
         <div class="hero-text">
           <div class="hero-tag" data-aos="fade-down">
-            <span class="tag-arrow">▶</span>Junior Web Developer
+            <span class="tag-arrow">▶</span>{{ t('heroTag') }}
           </div>
           <h1 class="hero-name" data-aos="fade-right">
-            <span class="hero-hi">Hello, I'm</span>
+            <span class="hero-hi">{{ t('heroHello') }}</span>
             <span class="hero-oca">Muhammad Abdul Rozzaq</span>
           </h1>
           <p class="hero-desc" data-aos="fade-right" data-aos-delay="150">
-            I build modern, responsive, and scalable web applications using
-            HTML, CSS, JavaScript, Laravel, Bootstrap, Tailwind CSS, and MySQL.
+            {{ t('heroDesc') }}
           </p>
           <div class="hero-cta" data-aos="fade-right" data-aos-delay="300">
-            <a href="#projects" class="btn-primary">View Projects</a>
-            <a href="#contact" class="btn-outline">Contact Me</a>
+            <a href="#projects" class="btn-primary">{{ t('heroCtaProjects') }}</a>
+            <a href="#contact" class="btn-outline">{{ t('heroCtaContact') }}</a>
           </div>
         </div>
 
@@ -136,8 +152,8 @@
             <img src="./assets/profile.JPG" alt="Oca" class="avatar-img" />
           </div>
           <div class="avatar-badge" data-aos="zoom-in" data-aos-delay="500">
-            <strong>Available</strong>
-            <span>For Freelance|Full-Time Roles</span>
+            <strong>{{ t('heroBadgeTitle') }}</strong>
+            <span>{{ t('heroBadgeSub') }}</span>
           </div>
         </div>
       </div>
@@ -148,26 +164,18 @@
       <div class="max-container">
         <div class="about-grid">
           <div class="about-text" data-aos="fade-right">
-            <div class="section-label">// About Me</div>
-            <h2 class="section-title">Building things<br />that matter.</h2>
-            <p class="about-desc">
-              I am a web developer focused on building elegant and
-              high-performance web applications. I enjoy creating responsive
-              interfaces and backend systems that provide the best user
-              experience possible.
-            </p>
-            <p class="about-desc">
-              With a strong foundation in both frontend and backend, I bring
-              ideas from design to deployment — clean, efficient, and scalable.
-            </p>
+            <div class="section-label">// {{ t('aboutLabel') }}</div>
+            <h2 class="section-title" v-html="t('aboutTitle')"></h2>
+            <p class="about-desc">{{ t('aboutDesc1') }}</p>
+            <p class="about-desc">{{ t('aboutDesc2') }}</p>
             <div class="stats-row" data-aos="fade-up" data-aos-delay="200">
               <div class="stat-box" data-aos="flip-up" data-aos-delay="300">
                 <div class="stat-num">2+</div>
-                <div class="stat-label">Years Experience</div>
+                <div class="stat-label">{{ t('aboutStat1Label') }}</div>
               </div>
               <div class="stat-box" data-aos="flip-up" data-aos-delay="400">
                 <div class="stat-num">10+</div>
-                <div class="stat-label">Projects Completed</div>
+                <div class="stat-label">{{ t('aboutStat2Label') }}</div>
               </div>
             </div>
           </div>
@@ -184,9 +192,7 @@
               <strong class="about-img-name"
                 >Muhammad Abdul Rozzaq, S.Kom</strong
               >
-              <p class="about-img-sub">
-                Based in Indonesia · Open to remote work & on-site work
-              </p>
+              <p class="about-img-sub">{{ t('aboutSubtitle') }}</p>
             </div>
           </div>
         </div>
@@ -196,9 +202,9 @@
     <!-- SKILLS SECTION -->
     <section id="skills" class="skills-section">
       <div class="max-container">
-        <div class="section-label" data-aos="fade-up">// Skills</div>
+        <div class="section-label" data-aos="fade-up">// {{ t('skillsLabel') }}</div>
         <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
-          Tech Stack
+          {{ t('skillsTitle') }}
         </h2>
         <div class="skills-grid">
           <div
@@ -223,9 +229,9 @@
     <!-- PROJECTS SECTION -->
     <section id="projects" class="projects-section">
       <div class="max-container">
-        <div class="section-label" data-aos="fade-up">// Projects</div>
+        <div class="section-label" data-aos="fade-up">// {{ t('projectsLabel') }}</div>
         <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
-          Featured Work
+          {{ t('projectsTitle') }}
         </h2>
         <div class="projects-grid">
           <div
@@ -243,17 +249,17 @@
             />
             <div class="project-body">
               <div class="project-num">
-                PROJECT {{ String(index + 1).padStart(2, "0") }}
+                {{ t('projectNumLabel') }} {{ String(index + 1).padStart(2, "0") }}
               </div>
               <h3 class="project-title">{{ project.title }}</h3>
-              <p class="project-desc">{{ project.description }}</p>
+              <p class="project-desc">{{ t(project.descKey) }}</p>
               <div class="project-tags">
                 <span v-for="tech in project.tech" :key="tech" class="tag">{{
                   tech
                 }}</span>
               </div>
               <button class="project-btn" @click="openLink(project.link)">
-                View Project →
+                {{ t('projectBtn') }}
               </button>
             </div>
           </div>
@@ -264,12 +270,9 @@
     <!-- CONTACT SECTION -->
     <section id="contact" class="contact-section">
       <div class="contact-inner" data-aos="fade-up">
-        <div class="section-label">// Contact</div>
-        <h2 class="section-title">Let's Work<br />Together.</h2>
-        <p class="contact-desc">
-          Have a project in mind or want to collaborate? I'd love to hear from
-          you and explore what we can build together.
-        </p>
+        <div class="section-label">// {{ t('contactLabel') }}</div>
+        <h2 class="section-title" v-html="t('contactTitle')"></h2>
+        <p class="contact-desc">{{ t('contactDesc') }}</p>
         <div class="contact-links">
           <a
             href="https://github.com/kodokTemler"
@@ -310,7 +313,7 @@
                 d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
               />
             </svg>
-            Email Me
+            {{ t('contactEmail') }}
           </a>
         </div>
       </div>
@@ -319,9 +322,7 @@
     <!-- FOOTER -->
     <footer class="site-footer">
       <div class="footer-logo">MAR.</div>
-      <div class="footer-copy">
-        © 2026 Muhammad Abdul Rozzaq. All rights reserved.
-      </div>
+      <div class="footer-copy">{{ t('footerCopy') }}</div>
     </footer>
   </div>
 </template>
@@ -329,8 +330,11 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useScrollAnimation } from "@/composables/useScrollAnimation.js";
+import { useI18n } from "@/composables/useI18n.js";
 
 useScrollAnimation();
+
+const { t, locale, toggleLang } = useI18n();
 
 const showLoader = ref(true);
 const mobileMenuOpen = ref(false);
@@ -364,11 +368,11 @@ const openLink = (link) => {
 };
 
 const navItems = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "#projects", label: "Projects" },
-  { href: "#contact", label: "Contact" },
+  { href: "#home", key: "navHome" },
+  { href: "#about", key: "navAbout" },
+  { href: "#skills", key: "navSkills" },
+  { href: "#projects", key: "navProjects" },
+  { href: "#contact", key: "navContact" },
 ];
 
 const skills = ref([
@@ -413,16 +417,14 @@ const skills = ref([
 const projects = [
   {
     title: "Stunting Prediction System",
-    description:
-      "Web-based system for predicting stunting using Gaussian Naive Bayes integrated with Laravel and Python.",
+    descKey: "projDesc1",
     image: "/images/stunting.png",
     tech: ["Laravel", "Python", "MySQL", "Bootstrap"],
     link: "https://github.com/kodokTemler/aplikasi-prediksi-stunting-naive-bayes",
   },
   {
     title: "Football Field Booking",
-    description:
-      "An online soccer field booking system equipped with scheduling, payment, and email verification features during the account creation process.",
+    descKey: "projDesc2",
     image: "/images/lapanganbola.png",
     tech: [
       "PHP",
@@ -437,16 +439,14 @@ const projects = [
   },
   {
     title: "Memories Coffee Shop Website",
-    description:
-      "A simple web application for a local coffee shop to manage their menu and orders.",
+    descKey: "projDesc3",
     image: "/images/kopikenangan.png",
     tech: ["JavaScript", "Bootstrap", "PHP", "MySQL", "Mitrans"],
     link: "https://github.com/kodokTemler/Aplikasi-Kasir-Caffe",
   },
   {
     title: "Batupute Village Website, Barru Regency",
-    description:
-      "Official website for Batupute village, providing information and services to residents.",
+    descKey: "projDesc4",
     image: "/images/batupute.png",
     tech: ["Laravel", "PHP", "MySQL", "Bootstrap"],
     link: "https://website.desa-batupute.com/",

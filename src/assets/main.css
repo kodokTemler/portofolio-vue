@@ -193,7 +193,12 @@ html {
   align-items: center;
   justify-content: center;
   transition: all 0.2s;
-  margin-right: 0.5rem;
+}
+
+.toggle-group {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 .theme-btn:hover {
